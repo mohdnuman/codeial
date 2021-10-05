@@ -1,0 +1,12 @@
+<div id="header-cont">
+   <span style="font-weight: 600; font-size: 2rem;">Codeial</span>
+   <span id="auth-links">
+        <% if(locals.user) {%>
+        <span><%=user.name%></span>
+        <span><a href="/user/sign-out">Sign Out</a></span>
+        <% } else { %>
+            <span><a href="/user/sign-in">Sign In</a></span>
+            <span><a href="/user/sign-up">Sign up</a></span>
+        <%}%>
+    </span>
+</div>

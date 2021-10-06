@@ -2,10 +2,12 @@
 <h1>home</h1>
 
 <section>
+    <%if(locals.user){%>
     <form action="/post/create" method="POST">
         <textarea name="content"  cols="30" rows="3" placeholder="Type here...."></textarea>
         <input type="submit" value="Post">
     </form>
+    <%}%>
 
     <div id="posts-container">
         <ul>

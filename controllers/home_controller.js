@@ -1,6 +1,13 @@
+const Post=require('../models/post');
+
 module.exports.home=function(req,res){
-    // return res.end('<h1>express is up for codeial</h1>');
-    return res.render('home',{
-        title:"hommmmeeee"
+    Post.find({}).populate('user').exec(function(err,posts){
+        if(err){
+            console.log("error occurred in finding the posts");
+            return;
+        }
+        return res.render('home',{
+            posts:posts
+        });
     });
 }

@@ -1,10 +1,21 @@
-<html>
-    <head>
-          <title>home</title>
-    </head>
-    <body>
-        <h1>home</h1>
-      
-        
-    </body>
-</html>
+
+<h1>home</h1>
+
+<section>
+    <form action="/post/create" method="POST">
+        <textarea name="content"  cols="30" rows="3" placeholder="Type here...."></textarea>
+        <input type="submit" value="Post">
+    </form>
+
+    <div id="posts-container">
+        <ul>
+           <% for(post of posts) {%>
+            <li>
+                <%=post.user.name%><br>
+                <%= post.content%>
+
+            </li>
+            <%}%>
+        </ul>
+    </div>
+</section>

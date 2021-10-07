@@ -1,8 +1,9 @@
 body {
   margin: 0px;
-display: flex;
-height:100vh;
-flex-direction: column; }
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
 
 #header-cont {
   padding: 7px;
@@ -45,8 +46,6 @@ flex-direction: column; }
   color: whitesmoke;
   text-decoration: none; }
 
-main {
-  width: 100%; }
-#footer{
- margin-top: auto;
-  }
+#footer {
+  margin-top: auto;
+  min-height: 45px; }

@@ -1,19 +1,38 @@
 const User=require('../models/user');
 
 module.exports.profile=function(req,res){
-    return res.render('profile');
+    User.findById(req.params.id,function(err,user){
+        if(err){
+            return;
+        }
+        return res.render('profile',{
+            profile_user:user
+        });
+
+    });
+}
+
+module.exports.update=function(req,res){
+    if(req.user.id==req.params.id){
+        User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
+            return res.redirect('back');
+        });
+    }
+    else{
+        return res.status(401).send('Unauthorised');
+    }
 }
 
 module.exports.signup=function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect('/user/profile');
+        return res.redirect('/user/profile/'+req.user.id);
     }
     return res.render('user-sign-up');
 }
 
 module.exports.signin=function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect('/user/profile');
+        return res.redirect('/user/profile/'+req.user.id);
     }
     return res.render('user-sign-in');
 }
@@ -47,7 +66,7 @@ module.exports.create=function(req,res){
 }
 
 module.exports.createSession=function(req,res){
-    res.redirect('/user/profile');
+    res.redirect('/user/profile/'+req.user.id);
 }
 
 module.exports.destroySession=function(req,res){

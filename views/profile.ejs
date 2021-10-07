@@ -1,9 +1,13 @@
-<html>
-    <head>
-        <title>profile</title>
-    </head>
-    <body>
-        <h1><%=user.name%></h1>
-        <h1><%=user.email%></h1>
-    </body>
-</html>
+
+<%if(locals.user.id==profile_user.id){%>
+    <form action="/user/update/<%= profile_user.id%>" method="POST">
+        <input type="text" name="name" value="<%=profile_user.name%>">
+        <input type="email" name="email" value="<%=profile_user.email%>">
+        <input type="submit" value="Update">
+    </form>
+
+<%} else{ %>
+    <h1><%=profile_user.name%></h1>
+    <h1><%=profile_user.email%></h1>
+<%}%>  
+   

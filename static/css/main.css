@@ -1,5 +1,8 @@
 body {
-  margin: 0px; }
+  margin: 0px;
+display: flex;
+height:100vh;
+flex-direction: column; }
 
 #header-cont {
   padding: 7px;
@@ -43,5 +46,7 @@ body {
   text-decoration: none; }
 
 main {
-  height: 95%;
   width: 100%; }
+#footer{
+ margin-top: auto;
+  }

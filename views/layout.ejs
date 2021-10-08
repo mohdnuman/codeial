@@ -1,11 +1,38 @@
 <html>
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
         <link rel="stylesheet" href="/css/main.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <title>Codeial</title>
     </head>
     <body>
+          
         <%-include('./header.ejs') %>
         <main> <%-body%> </main>
         <section id="footer"><%-include('./footer.ejs')%></section>
+
+        <script>
+             <% if(flash.success && flash.success.length>0){%>
+            // <h5><%=flash.success%></h5>
+                new Noty({
+                    theme:'relax',
+                    text:'<%=flash.success%>',
+                    type:'success',
+                    layout:'topRight',
+                    timeout:1500
+                }).show();
+            <%}%> 
+            <% if(flash.error && flash.error.length>0){%>
+            // <h5><%=flash.success%></h5>
+                new Noty({
+                    theme:'relax',
+                    text:'<%=flash.error%>',
+                    type:'error',
+                    layout:'topRight',
+                    timeout:1500
+                }).show();
+            <%}%> 
+
+        </script>
     </body>
 </html>

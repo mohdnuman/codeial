@@ -2,6 +2,8 @@
     <span>&copy; Coding Ninjas. All Rights Reserved </span>&nbsp;&nbsp;&ensp;
     <span id="links">
        <a href="/">HOME</a>
+       <%if(locals.user){ %>
        <a href="/user/profile/<%=user.id%>">PROFILE</a>
+       <%}%>
     </span>
 </div>

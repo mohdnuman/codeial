@@ -1,6 +1,7 @@
 const { modelNames } = require('mongoose');
 const Comment=require('../models/comment');
 const Post=require('../models/post');
+const commentsMailer=require("../mailers/comments_mailer");
 
 module.exports.create=async function(req,res){
     try{
@@ -11,9 +12,11 @@ module.exports.create=async function(req,res){
                     user:req.user._id,
                     post:req.body.post
         });
-        comment=await comment.populate('user','name');
+        comment=await comment.populate('user','name email');
         post.comments.push(comment);
         post.save();
+
+        commentsMailer.newComment(comment);
 
         if(req.xhr){
             return res.status(200).json({

@@ -4,7 +4,15 @@
     <%}%>    
 
     <%=post.user.name%><br>
-    <%= post.content%>
+    <%= post.content%><br>
+
+    <%if(locals.user){%>   
+    <form action="/like/toggle/?type=Post&id=<%=post.id%>" class="like-form" method="POST" data-likes="<%=post.likes.length%>">
+        <input type="hidden" name="post" value="<%=post._id%>">
+        <button type="submit"><i class="far fa-thumbs-up"></i><span><%=post.likes.length%></span>  Like</button>
+    </form>
+    <%}%> 
+   
 
     <%if(locals.user){%>
         <form action="/comment/create" class="new-comment-form" method="POST">
@@ -24,6 +32,9 @@
     </div>
 
 </li>
+
+
+
 
 
 

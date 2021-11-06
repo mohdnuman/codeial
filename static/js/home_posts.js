@@ -44,7 +44,14 @@
             <a class="delete-post-button" href="/post/destroy/${post._id}">X</a>
     
         ${post.user.name}<br>
-        ${post.content}
+        ${post.content}<br>
+
+          
+            <form action="/like/toggle/?type=Post&id=${post._id}" class="like-form" method="POST"  data-likes="${post.likes.length}">
+                <input type="hidden" name="post" value="${post._id}">
+                <button type="submit"><i class="far fa-thumbs-up"></i><span>${post.likes.length}</span>  Like</button>
+            </form>
+         
     
         
             <form action="/comment/create"  class="new-comment-form" method="POST">

@@ -45,7 +45,12 @@
         
         
             ${comment.user.name}<br>
-            ${comment.content}
+            ${comment.content}<br>
+
+            <form action="/like/toggle/?type=Comment&id=${comment._id}" class="like-form" method="POST"  data-likes="${comment.likes.length}">
+            <input type="hidden" name="comment" value="${comment._id}">
+            <button type="submit"><i class="far fa-thumbs-up"></i><span>${comment.likes.length}</span>  Like</button>
+        </form>
         </li>`);
     }
 

@@ -8,8 +8,11 @@ module.exports.home=async function(req,res){
         .populate('user')
         .populate({
             path:'comments',
-            populate:{path:'user'}
+            populate:{
+                path:'user'
+            }
         })
+        .populate('likes');
         let users=await User.find({});
         return res.render('home',{
             posts:posts,

@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<%=assetPath('css/home.css')%>">
+<link rel="stylesheet" href="<%=assetPath('/css/home.css')%>">
 
 
 <div id="home-container">
@@ -31,12 +31,12 @@
         <%-include('./chatbox.ejs')%>
 </div>
 
-<script src="<%=assetPath('js/home_posts.js')%>"></script>
-<script src="<%=assetPath('js/comments.js')%>"></script>
-<script src="<%=assetPath('js/likes.js')%>"></script>
+<script src="<%=assetPath('/js/home_posts.js')%>"></script>
+<script src="<%=assetPath('/js/comments.js')%>"></script>
+<script src="<%=assetPath('/js/likes.js')%>"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.2/socket.io.js"></script>
-<script src="<%=assetPath('js/chat_engine.js')%>"></script>
+<script src="<%=assetPath('/js/chat_engine.js')%>"></script>
 	<%if(locals.user){%>
 	<script>
 		// console.log("hello");
